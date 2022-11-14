@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, Button, Image, linking, Linking } from 'react-native';
+import { View, Text, StyleSheet, Button, Image, Linking } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { Title, Card } from 'react-native-paper';
-import { MaterialIcons, Entypo } from 'react-native-vector-icons';
+import email from '../icon/email.png';
+import call from '../icon/call.png';
+import dolar from '../icon/dollar.png';
 // import Karyawan from '../Karyawan';
 
 const Detail = ({ navigation, route}) => {
@@ -20,23 +22,23 @@ const Detail = ({ navigation, route}) => {
                 <Text style={{fontSize:14}}>{karyawan.jabatan}</Text>
             </View>
             <Card style={{margin:3}}
-            onPress={()=>{Linking.openURL('mailto:${karyawan.email}')}}>
+            onPress={()=>{Linking.openURL('mailto:${karyawan.email}&subjec')}}>
                 <View style={{flexDirection:"row", padding:8}}>
-                    {/* <MaterialIcons name="email"size={32} color="#006aff" /> */}
+                    <Image source={email} style={{width:30, height:30}} />
                     <Text style={styles.teks}>{karyawan.email}</Text>
                 </View>
             </Card>
             <Card style={{margin:3}}
             onPress={()=>{Linking.openURL('tel:${karyawan.telp}')}}>
                 <View style={{flexDirection:'row', padding:8}}>
-                    {/* <Entypo name="phone" size={32} color="#006aff"/> */}
+                <Image source={call} style={{width:30, height:30}} />
                     <Text style={styles.teks}>{karyawan.telp}</Text>
 
                 </View>
             </Card>
             <Card style={{margin:3}} >
                 <View style={{flexDirection:'row', padding:8}}>
-                    {/* <MaterialIcons name="attach-money" size={32} color="#006aff" /> */}
+                <Image source={dolar} style={{width:30, height:30}} />
                     <Text style={styles.teks}>{karyawan.gaji}</Text>
                 </View>
             </Card>
